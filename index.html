@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>CivicFlow AI — Interactive Web Demo</title>
+
+  <meta
+    name="description"
+    content="CivicFlow AI is a Bangla, English, and Banglish voice-first civic safety assistant for Bangladesh."
+  />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="page">
+    <nav class="nav">
+      <div class="container nav-inner">
+        <a class="brand" href="#top" aria-label="CivicFlow AI home">
+          <span class="brand-mark">
+            <img src="assets/icon.png" alt="CivicFlow AI app icon" />
+          </span>
+          <span>
+            CivicFlow AI
+            <small>NagrikAI Web Demo</small>
+          </span>
+        </a>
+
+        <div class="nav-links">
+          <a href="#demo">Try Demo</a>
+          <a href="#screens">Product UI</a>
+          <a href="#access">Live Links</a>
+          <a href="#ai">AI Flow</a>
+          <a href="#video">Video</a>
+        </div>
+      </div>
+    </nav>
+
+    <header class="hero" id="top">
+      <div class="container hero-grid">
+        <section class="hero-copy">
+          <div class="eyebrow">
+            <span class="pulse-dot"></span>
+            Bangladesh Civic Safety AI • Interactive Web Demo
+          </div>
+
+          <h1>
+            Voice-first civic help,
+            <span>built for real emergencies.</span>
+          </h1>
+
+          <p class="hero-text">
+            CivicFlow AI is a Bangla, English, and Banglish voice-first civic safety assistant.
+            It turns citizen voice reports into helpline recommendations, GPS report submission,
+            emergency live tracking, and dashboard-based civic response.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#demo">Try Web Demo</a>
+            <a class="btn btn-dark" href="https://civicflow-ai-backend.onrender.com/dashboard/reports" target="_blank" rel="noreferrer">
+              Open Dashboard
+            </a>
+            <a class="btn btn-soft" href="https://drive.google.com/file/d/1d06SXD1AvqUn_g_ga4dXuBbAERWtQsZU/view?usp=sharing" target="_blank" rel="noreferrer">
+              APK Backup
+            </a>
+          </div>
+
+          <div class="notice">
+            This website is an interactive judging demo that mirrors the Android app workflow.
+            The full product is a Flutter Android app with native microphone, GPS, phone dialer,
+            notification, live tracking, and safety monitor features.
+          </div>
+        </section>
+
+        <section class="hero-visual" aria-label="CivicFlow AI mobile app preview">
+          <div class="floating-card top-card">
+            <span>AI Mode</span>
+            <strong>Gemini Ready</strong>
+          </div>
+
+          <div class="hero-phone">
+            <div class="phone-shell compact-phone">
+              <div class="phone-screen hero-phone-screen">
+                <div class="phone-status">
+                  <span>12:19</span>
+                  <span>LTE • 57%</span>
+                </div>
+
+                <div class="hero-phone-logo">
+                  <img src="assets/icon.png" alt="CivicFlow AI app icon" />
+                </div>
+
+                <h2>Civic<span>Flow</span></h2>
+                <p>Tap the microphone and speak naturally about any civic issue.</p>
+
+                <div class="hero-mic">
+                  <span>🎙️</span>
+                </div>
+
+                <div class="hero-mini-card">
+                  <strong>Speak Report</strong>
+                  <span>No review needed. Just speak naturally.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="floating-card bottom-card">
+            <span>Live Dashboard</span>
+            <strong>Reports + GPS + Status</strong>
+          </div>
+        </section>
+      </div>
+    </header>
+
+    <main>
+      <section class="section" id="demo">
+        <div class="container">
+          <div class="section-head">
+            <span class="section-tag">Interactive Prototype</span>
+            <h2>Try the app workflow on the web</h2>
+            <p>
+              Judges can click fixed demo voice commands to understand the real Android app workflow
+              without installing the APK. The web demo shows AI understanding, safety logic,
+              helpline recommendation, emergency reporting, GPS decisions, and a demo dialer UI.
+            </p>
+          </div>
+
+          <div class="demo-layout">
+            <aside class="command-panel panel">
+              <h3>Demo voice commands</h3>
+              <p>
+                These represent Bangla/Banglish commands that the mobile app understands through AI voice analysis.
+              </p>
+
+              <div class="command-list">
+                <button class="command active" data-scenario="rab">
+                  <span class="command-icon">🛡️</span>
+                  <span>
+                    <strong>র‍্যাবের নম্বর দাও</strong>
+                    <small>Direct contact lookup — no GPS report</small>
+                  </span>
+                </button>
+
+                <button class="command" data-scenario="blood">
+                  <span class="command-icon">🩸</span>
+                  <span>
+                    <strong>ব্লাড ব্যাংকের নম্বর দাও</strong>
+                    <small>Blood bank matching — contact only</small>
+                  </span>
+                </button>
+
+                <button class="command" data-scenario="desco">
+                  <span class="command-icon">⚡</span>
+                  <span>
+                    <strong>ডেসকো নম্বর দাও</strong>
+                    <small>Utility helpline lookup</small>
+                  </span>
+                </button>
+
+                <button class="command danger" data-scenario="emergency">
+                  <span class="command-icon">🚨</span>
+                  <span>
+                    <strong>আমি বিপদে আছি, সাহায্য লাগবে</strong>
+                    <small>Emergency auto-submit + GPS + tracking</small>
+                  </span>
+                </button>
+
+                <button class="command" data-scenario="ambulance">
+                  <span class="command-icon">🚑</span>
+                  <span>
+                    <strong>আমার অ্যাম্বুলেন্স লাগবে</strong>
+                    <small>Medical emergency support</small>
+                  </span>
+                </button>
+
+                <button class="command" data-scenario="risk">
+                  <span class="command-icon">📍</span>
+                  <span>
+                    <strong>আমি ঝুঁকিপূর্ণ এলাকায় আছি কিনা দেখাও</strong>
+                    <small>Risk-zone safety check</small>
+                  </span>
+                </button>
+              </div>
+            </aside>
+
+            <section class="simulator-wrap">
+              <div class="phone-shell">
+                <div class="phone-screen">
+                  <div class="phone-status">
+                    <span>9:41</span>
+                    <span>5G • 87%</span>
+                  </div>
+
+                  <div class="appbar">
+                    <div>
+                      <strong>CivicFlow AI</strong>
+                      <small>Bangla voice-first civic safety</small>
+                    </div>
+                    <div class="avatar">👤</div>
+                  </div>
+
+                  <div class="voice-card">
+                    <div class="mic-button">🎙️</div>
+                    <h3 id="phoneHeadline">Direct contact request detected</h3>
+                    <p id="phoneSubline">No report submission needed</p>
+                  </div>
+
+                  <div class="analysis-card">
+                    <div class="analysis-title">
+                      <span>🧠</span>
+                      <div>
+                        <strong>AI Understanding</strong>
+                        <small id="transcript">“র‍্যাবের নম্বর দাও”</small>
+                      </div>
+                    </div>
+
+                    <div class="result-grid">
+                      <div class="mini-result">
+                        <small>Intent</small>
+                        <strong id="intent">Direct contact lookup</strong>
+                      </div>
+
+                      <div class="mini-result">
+                        <small>GPS Report</small>
+                        <strong id="gps">Not submitted</strong>
+                      </div>
+
+                      <div class="mini-result">
+                        <small>Safety Logic</small>
+                        <strong id="safety">Contact-only request</strong>
+                      </div>
+
+                      <div class="mini-result">
+                        <small>Source</small>
+                        <strong id="source">Structured civic directory</strong>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="recommend-card">
+                    <small id="contactLabel">Recommended Contact</small>
+                    <h3 id="contactName">RAB / National emergency support</h3>
+                    <p id="contactReason">
+                      The app returns a matched contact without submitting location.
+                    </p>
+
+                    <div class="number-row">
+                      <div>
+                        <small>Tap to call</small>
+                        <strong id="number">999</strong>
+                      </div>
+                      <button type="button" id="callButton">Call</button>
+                    </div>
+                  </div>
+
+                  <div class="timeline" id="timeline">
+                    <div class="timeline-step"><span>✓</span> Voice command received</div>
+                    <div class="timeline-step"><span>✓</span> Gemini intent analysis completed</div>
+                    <div class="timeline-step"><span>✓</span> Matched from civic contact directory</div>
+                    <div class="timeline-step"><span>✓</span> GPS report blocked because this is contact-only</div>
+                  </div>
+
+                  <div class="bottom-nav">
+                    <span><b>🏠</b>Home</span>
+                    <span><b>☎️</b>Help</span>
+                    <span><b>🕘</b>History</span>
+                    <span><b>🛡️</b>Safety</span>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <section class="section soft-section" id="screens">
+        <div class="container">
+          <div class="section-head">
+            <span class="section-tag">Product UI & Feature Proof</span>
+            <h2>Real app screens and what they prove</h2>
+            <p>
+              These screens show how the mobile app and backend dashboard work together:
+              citizens speak, the AI understands the issue, reports can be submitted with GPS,
+              and reviewers can monitor cases from the dashboard.
+            </p>
+          </div>
+
+          <div class="showcase-grid">
+            <article class="showcase-card dashboard-card">
+              <div class="showcase-image dashboard-image">
+                <img src="assets/Dashboard.png" alt="CivicFlow AI protected backend dashboard showing submitted reports" />
+              </div>
+
+              <div class="showcase-content">
+                <span class="card-kicker">Protected Backend Dashboard</span>
+                <h3>Admin command center for report review, GPS evidence, and live response monitoring.</h3>
+
+                <p>
+                  The dashboard is the authority-side workspace of CivicFlow AI. When a citizen submits a civic
+                  problem or emergency report, the backend stores the report and shows it here for review.
+                  It displays the report type, emergency status, source, area, transcript, AI summary,
+                  recommended action, and GPS location.
+                </p>
+
+                <p>
+                  This helps reviewers understand what happened, where it happened, and what action is recommended.
+                  The dashboard also separates submitted reports and live tracking so emergency cases can be monitored
+                  faster. This proves the app has a working backend review flow, not only a front-end demo.
+                </p>
+
+                <div class="metric-grid">
+                  <div>
+                    <strong>Submitted Reports</strong>
+                    <span>Citizen voice reports appear for review.</span>
+                  </div>
+                  <div>
+                    <strong>GPS Evidence</strong>
+                    <span>Latitude, longitude, accuracy, and Google Maps link.</span>
+                  </div>
+                  <div>
+                    <strong>AI Summary</strong>
+                    <span>Short explanation of what the citizen reported.</span>
+                  </div>
+                  <div>
+                    <strong>Status Control</strong>
+                    <span>Reviewers can manage report progress.</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="showcase-card">
+              <div class="showcase-image mobile-image">
+                <img src="assets/home.png" alt="CivicFlow AI mobile home screen with microphone voice input" />
+              </div>
+
+              <div class="showcase-content">
+                <span class="card-kicker">Citizen Home UI</span>
+                <h3>Simple voice-first interface for stressful civic and emergency situations.</h3>
+
+                <p>
+                  The home screen is designed around one main action: tap the microphone and speak naturally.
+                  Users do not need to fill a long form or search through complicated menus.
+                </p>
+
+                <p>
+                  The Help button gives quick access to the helpline directory, while Profile, History, and Safety
+                  are placed around the screen without distracting from the main voice report flow.
+                </p>
+
+                <p>
+                  This design is especially useful for elderly users, rural users, or people under pressure because
+                  it reduces typing, searching, and manual report steps.
+                </p>
+              </div>
+            </article>
+
+            <article class="showcase-card">
+              <div class="showcase-image mobile-image">
+                <img src="assets/helpline.png" alt="Emergency and helpline directory with area recommendation" />
+              </div>
+
+              <div class="showcase-content">
+                <span class="card-kicker">Helpline & Area Recommendation</span>
+                <h3>Category-based help for gas, electricity, water, ambulance, blood bank, and cyber/fraud support.</h3>
+
+                <p>
+                  This screen lets users find national and regional emergency contacts without scrolling through a
+                  long mixed list. Users can choose a problem type and use GPS to find the most relevant local or
+                  national helpline.
+                </p>
+
+                <p>
+                  The same logic supports the voice assistant. Direct contact requests return only the matched
+                  number, while real incident reports can use location when needed.
+                </p>
+
+                <ul>
+                  <li>Category-based help selection</li>
+                  <li>GPS-supported area recommendation</li>
+                  <li>Direct contact lookup without unnecessary GPS report submission</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="showcase-card">
+              <div class="showcase-image mobile-image">
+                <img src="assets/risk_zone_warning.png" alt="Risk zone warning screen in Bangla" />
+              </div>
+
+              <div class="showcase-content">
+                <span class="card-kicker danger-kicker">Risk-Zone Warning</span>
+                <h3>Bangla safety warning when the user enters a known risky area.</h3>
+
+                <p>
+                  The risk-zone warning screen explains the risky area, district, possible safety concerns,
+                  and recommended precautions in Bangla. This feature is important because civic safety is not only
+                  about reporting after something happens; it can also warn users before they stay too long in a risky place.
+                </p>
+
+                <p>
+                  The warning is based on structured hotspot data and the user’s GPS location. If the location matches
+                  a saved risk zone, the app can show this warning and guide the user to stay alert.
+                </p>
+              </div>
+            </article>
+
+            <article class="showcase-card">
+              <div class="showcase-image mobile-image">
+                <img src="assets/safety.png" alt="Safety monitor screen for checking nearby risk zones" />
+              </div>
+
+              <div class="showcase-content">
+                <span class="card-kicker">Safety Monitor</span>
+                <h3>Optional GPS-based safety check for nearby risk zones.</h3>
+
+                <p>
+                  The Safety Monitor lets users turn on risk-zone checking while the app is running.
+                  Users can also tap “Check Now” to immediately check whether their current location matches a known hotspot.
+                </p>
+
+                <p>
+                  This screen clearly explains how the feature works: CivicFlow checks GPS location against the saved
+                  Bangladesh risk-zone dataset, then sends a warning and safety guidance if a match is found.
+                </p>
+
+                <ul>
+                  <li>User-controlled safety monitoring</li>
+                  <li>GPS-based risk-zone check</li>
+                  <li>Notification and warning screen support</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="showcase-card icon-card">
+              <div class="showcase-image icon-image">
+                <img src="assets/icon.png" alt="CivicFlow AI app icon" />
+              </div>
+
+              <div class="showcase-content">
+                <span class="card-kicker">App Identity</span>
+                <h3>Civic safety, voice assistance, and location awareness in one visual identity.</h3>
+
+                <p>
+                  The CivicFlow AI icon combines a shield, microphone, and location marker. The shield represents
+                  public safety, the microphone represents voice-first AI interaction, and the location marker represents
+                  GPS-based reporting and risk-zone awareness.
+                </p>
+
+                <p>
+                  This icon can be used across the Android app, Vercel demo portal, video thumbnail, and presentation
+                  slides so the project looks consistent and professional.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="access">
+        <div class="container">
+          <div class="section-head">
+            <span class="section-tag">Live Access</span>
+            <h2>Links for judges</h2>
+            <p>
+              Use these links to review the interactive web demo, protected dashboard,
+              source code, and Android APK backup.
+            </p>
+          </div>
+
+          <div class="access-grid">
+            <article class="access-card primary-access">
+              <span>01</span>
+              <h3>Interactive Web Demo</h3>
+              <p>This Vercel page is the main live submission link.</p>
+              <a class="btn btn-primary" href="https://civicflow-demo-portal.vercel.app/" target="_blank" rel="noreferrer">
+                Open Web Demo
+              </a>
+            </article>
+
+            <article class="access-card">
+              <span>02</span>
+              <h3>Protected Dashboard</h3>
+              <p>Shows reports, GPS location, citizen identity, status updates, and live tracking records.</p>
+              <div class="code-chip">Password: print('CivicFlow_AI')</div>
+              <a class="btn btn-dark" href="https://civicflow-ai-backend.onrender.com/dashboard/reports" target="_blank" rel="noreferrer">
+                Open Dashboard
+              </a>
+            </article>
+
+            <article class="access-card">
+              <span>03</span>
+              <h3>GitHub Repository</h3>
+              <p>Source code for the CivicFlow AI Flutter project.</p>
+              <a class="btn btn-soft" href="https://github.com/SanjanaPushpita/civicflow-ai" target="_blank" rel="noreferrer">
+                View GitHub
+              </a>
+            </article>
+
+            <article class="access-card">
+              <span>04</span>
+              <h3>Android APK Backup</h3>
+              <p>For Android testing if judges want to try the native mobile build.</p>
+              <a class="btn btn-soft" href="https://drive.google.com/file/d/1d06SXD1AvqUn_g_ga4dXuBbAERWtQsZU/view?usp=sharing" target="_blank" rel="noreferrer">
+                Download APK
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section soft-section" id="ai">
+        <div class="container">
+          <div class="section-head">
+            <span class="section-tag">AI & Architecture</span>
+            <h2>How CivicFlow AI thinks</h2>
+            <p>
+              The current version combines Gemini voice understanding with structured civic retrieval
+              and deterministic safety rules. Emergency actions are protected by rules, not blindly generated by AI.
+            </p>
+          </div>
+
+          <div class="architecture-grid">
+            <div class="arch-step">
+              <span>🎙️</span>
+              <strong>Voice Input</strong>
+              <small>Bangla, English, or Banglish spoken report</small>
+            </div>
+
+            <div class="arch-step">
+              <span>🧠</span>
+              <strong>Gemini AI</strong>
+              <small>Intent and issue understanding</small>
+            </div>
+
+            <div class="arch-step">
+              <span>📚</span>
+              <strong>Civic Directory</strong>
+              <small>Helpline, contact, blood bank, and risk-zone data</small>
+            </div>
+
+            <div class="arch-step">
+              <span>🛡️</span>
+              <strong>Safety Rules</strong>
+              <small>Decides when GPS/reporting is allowed</small>
+            </div>
+
+            <div class="arch-step">
+              <span>📊</span>
+              <strong>Dashboard</strong>
+              <small>Report review, status, and live tracking</small>
+            </div>
+          </div>
+
+          <div class="roadmap-box">
+            <strong>Next upgrade plan:</strong>
+            stronger RAG-based civic knowledge retrieval, source tracking, district-level emergency contacts,
+            AI evaluation test cases, and improved dashboard analytics.
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="video">
+        <div class="container">
+          <div class="video-box">
+            <div class="play-button">▶</div>
+            <h2>180-Second Pitch Video Coming Soon</h2>
+            <p>
+              Upload the final YouTube video as Public or Unlisted, then replace this placeholder with the YouTube link.
+              The video should show problem, solution, app workflow, AI approach, dashboard proof, and next steps.
+            </p>
+            <button class="btn btn-disabled" type="button">YouTube Link Not Added Yet</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="submission">
+        <div class="container">
+          <div class="submission-panel">
+            <h2>Competition access note</h2>
+            <p>Copy this into the submission form if they ask how to access the live demo.</p>
+
+            <textarea readonly>This is the official CivicFlow AI interactive web demo. The real product is a Flutter Android mobile app, but this web demo mirrors the main app workflows for judging: Bangla/English/Banglish voice-to-action, helpline lookup, emergency report submission, GPS decision logic, emergency live tracking concept, risk-zone safety monitor, and protected dashboard review.
+
+Dashboard link: https://civicflow-ai-backend.onrender.com/dashboard/reports
+Dashboard password: print('CivicFlow_AI')
+
+APK backup is also provided for Android testing if needed.</textarea>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        CivicFlow AI — Bangla voice-first civic safety assistant for Bangladesh.
+      </div>
+    </footer>
+  </div>
+
+  <div class="modal-backdrop" id="dialerModal" aria-hidden="true">
+    <div class="dialer" role="dialog" aria-label="Demo phone dialer">
+      <div class="dialer-top">
+        <strong>Demo Phone Dialer</strong>
+        <button class="close-button" id="closeDialer" type="button" aria-label="Close dialer">×</button>
+      </div>
+
+      <div class="call-display">
+        <small id="dialerService">Emergency Service</small>
+        <h3 id="dialerTitle">Calling...</h3>
+        <div class="big-number" id="dialerNumber">999</div>
+      </div>
+
+      <div class="keypad">
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+        <span>5</span>
+        <span>6</span>
+        <span>7</span>
+        <span>8</span>
+        <span>9</span>
+        <span>*</span>
+        <span>0</span>
+        <span>#</span>
+      </div>
+
+      <div class="dialer-actions">
+        <a class="real-call-button" id="realCallLink" href="tel:999">Open Phone Dialer</a>
+        <button class="end-call-button" id="endCall" type="button">End Demo</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
